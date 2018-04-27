@@ -4,13 +4,13 @@
     <%= bootstrap_form_for contact_form, url: spotlight.exhibit_contact_form_path(current_exhibit, contact_form), layout: :horizontal, label_col: 'col-sm-3', control_col: 'col-sm-9', html: { class: 'col-md-offset-2 col-md-8 '} do |f| %>
 
       <h2><%= t(:'.title') %></h2>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, label: t(:'.name') %>
       <span style="display:none;visibility:hidden;">
         <% honeypot_field_name = Spotlight::Engine.config.spambot_honeypot_email_field %>
         <%= f.email_field honeypot_field_name, label: t(:'.honeypot_field_explanation') %>
       </span>
-      <%= f.email_field :email %>
-      <%= f.text_area :message, rows: 7 %>
+      <%= f.email_field :email, label: t(:'.email') %>
+      <%= f.text_area :message, rows: 7, label: t(:'.message') %>
       <%= f.hidden_field :current_url %>
       <div class="form-actions">
         <div class="primary-actions">

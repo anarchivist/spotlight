@@ -729,7 +729,10 @@ en:
         missing_description_html: "%{link} to add a description."
     shared:
       report_a_problem:
+        email: Email
         honeypot_field_explanation: Ignore this text box. It is used to detect spammers. If you enter anything into this text box, your message will not be sent.
+        message: Message
+        name: Name
         title: Contact Us
     sir_trevor:
       blocks:
