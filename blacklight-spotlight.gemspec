@@ -74,4 +74,5 @@ these collections.)
   s.add_development_dependency 'sitemap_generator'
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'i18n-tasks'
+  s.add_development_dependency 'capybara-chromedriver-logger'
 end

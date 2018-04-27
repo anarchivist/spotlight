@@ -15,6 +15,7 @@ require 'paper_trail/frameworks/rspec'
 
 require 'selenium-webdriver'
 require 'webmock/rspec'
+require 'capybara/chromedriver/logger'
 
 Capybara.javascript_driver = :headless_chrome
 
@@ -25,7 +26,10 @@ Capybara.javascript_driver = :headless_chrome
 #       h/t @mjgiarlo
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu no-sandbox window-size=1280,1696] }
+    chromeOptions: { args: %w[headless disable-gpu no-sandbox window-size=1280,1696] },
+    loggingPrefs: {
+      browser: 'ALL'
+    }
   )
 
   Capybara::Selenium::Driver.new(app,
@@ -96,6 +100,8 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+  config.after(:each, js: true) { Capybara::Chromedriver::Logger::TestHooks.after_example! }
 
   config.default_formatter = 'doc' if config.files_to_run.one?
 
