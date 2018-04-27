@@ -127,13 +127,13 @@ en:
       update: Save changes
   locales:
     de: German
-    en: English
+
     es: Spanish
     fr: French
     hu: Hungarian
     it: Italian
     nl: Dutch
-    pt-br: Portugese - Brazil
+    pt-BR: Portugese - Brazil
     sq: Albanian
     zh: Chinese
   reindexing_log:
